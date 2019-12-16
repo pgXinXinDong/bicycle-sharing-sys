@@ -1,15 +1,18 @@
 var MenuConfig =  [
     {
         title:"首页",
-        key:"/admin/home"
+        key:"/admin/home",
+        icon:"desktop",
     },
     {
         title:"UI",
         key:"/admin/ui",
+        icon:"pie-chart",
         children:[
             {
                 title:"按钮",
-                key:"/admin/ui/buttons"
+                key:"/admin/ui/buttons",
+
             },
             {
                 title:"弹窗",
@@ -49,6 +52,7 @@ var MenuConfig =  [
     {
         title:"表单",
         key:"/admin/form",
+        icon:"form",
         children:[
             {
                 title:"登录",
@@ -63,6 +67,7 @@ var MenuConfig =  [
     {
         title:"表格",
         key:"/admin/table",
+        icon:"book",
         children:[
             {
                 title:"登录",

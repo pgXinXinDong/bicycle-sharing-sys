@@ -3,6 +3,7 @@ import MenuConfig from "../../config/menuConfig"
 import  {Menu,Icon,Button} from "antd"
 const { SubMenu } = Menu
 
+
 class NarMenu extends React.Component{
     componentWillMount(){
         const menuTreeNode = this.renderMenu(MenuConfig);
@@ -15,16 +16,26 @@ class NarMenu extends React.Component{
     renderMenu=(data)=> {
         return data.map(item=>{
             if(item.children){
-                return<SubMenu key={item.title} title={item.title}>
+                return<SubMenu key={item.title}
+                  title={
+                   <span>
+                      <Icon type={item.icon} />
+                      <span>{item.title}</span>
+                </span>
+                               }
+                >
+
                     {this.renderMenu(item.children)}
                 </SubMenu>
             }
-            return<Menu.Item key={item.key}>{item.title}</Menu.Item>
+            return<Menu.Item key={item.key}>
+                    <Icon type={item.icon} />
+                    <span>{item.title}</span>
+                </Menu.Item>
         })
 
     }
     render(){
-        console.log(111,this.state.menuTreeNode)
         return(
             <Menu
                 mode="inline"
