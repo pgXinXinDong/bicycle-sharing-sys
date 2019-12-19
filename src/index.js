@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import Index from "./pages/admin/"
+import App from "./pages/app"
 
 
 
-ReactDOM.render(<Index/>,document.getElementById("root"))
+ReactDOM.render(<App/>,document.getElementById("root"))

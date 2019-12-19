@@ -22,17 +22,16 @@ export default class HeaderContent extends React.Component{
              .then((res)=>{
 
                  res = res.data.HeWeather6[0];
-                 console.log(res)
+
                  let location =res.basic.location;
                  let cond_txt = res.now.cond_txt;
                  let wind_dir = res.now.wind_dir
-                 let weather = location + "  " + cond_txt + wind_dir
+                 let weather = location + " : " + cond_txt + wind_dir
                  this.setState({
                      weather:weather
                  })
              })
              .catch(err=>{
-                 console.log("err22",err);
                  return
              })
 
@@ -53,10 +52,14 @@ export default class HeaderContent extends React.Component{
                 </Row>
                 <p className="line"></p>
                 <Row className="p-l-r" style={{height:"36px",lineHeight:"36px"}}>
-                    <Col span={6} offset={15} className="t-a-r">
+                    <Col span={1} offset={1} className="p-r">
+                        <span>首页</span>
+                        <span className="arrow-down arrow-pst"></span>
+                    </Col>
+                    <Col span={6} offset={13} className="t-a-r">
                         {this.state.sysTime}
                     </Col>
-                    <Col span={2} push={1} >
+                    <Col span={3} push={1} >
                         <span>{this.state.weather}</span>
                     </Col>
                 </Row>

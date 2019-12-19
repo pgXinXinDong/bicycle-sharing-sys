@@ -27,10 +27,6 @@ var MenuConfig =  [
                 key:"/admin/ui/notification"
             },
             {
-                title:"通知提醒",
-                key:"/admin/ui/notification"
-            },
-            {
                 title:"全局Message",
                 key:"/admin/ui/messages"
             },

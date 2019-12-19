@@ -1,51 +1,31 @@
 import React from "react"
 import { Layout } from "antd";
+import { BrowserRouter as Router,Route} from "react-router-dom"
 import NarMenu from "../../component/bar"
 import HeaderContent from "../../component/header"
-import "../../component/bar/index.less"
+import ContentAdmin from "../../component/content";
 import "./index.less"
-import logo from "../../logo.svg"
-const {Header,Content,Footer,Sider} =Layout
+const {Header,Content,Footer} =Layout
 
-
-
-
-
-
-class Index extends React.Component{
-    state={
-        collapsed:false,
-        logoTrag:true
-    }
-    onCollapse= collapsed => {
-        this.setState({
-            collapsed,
-            logoTrag : !this.state.logoTrag
-        })
-    }
+class Admin extends React.Component{
     render(){
         return(
-            <Layout style={{minHeight:'100vh'}}>
-                <Sider collapsible collapsed = {this.state.collapsed} onCollapse={this.onCollapse}>      <div className={  this.state.logoTrag?"logo":"logoHeight"}>
-                        <img className="logoImg" src={logo}/>
-                       <span
-                           className={
-                               this.state.logoTrag?"logoShow":"logoHide"
-                           }
-                       >共享单车系统</span>
-                    </div>
+            <Router>
+                <Layout style={{minHeight:'100vh'}}>
                     <NarMenu/>
-                </Sider>
-                <Layout>
-                    <Header>
-                        <HeaderContent/>
-                    </Header>
-                    <Content>Content</Content>
-                    <Footer>Footer</Footer>
+                    <Layout>
+                        <Header>
+                            <HeaderContent/>
+                        </Header>
+                        <Content>
+                           <Route path={["/admin/:minId","/admin/:minId/:id"]} component={ContentAdmin}></Route>
+                        </Content>
+                        <Footer>Footer</Footer>
+                    </Layout>
                 </Layout>
-            </Layout>
+            </Router>
         )
     }
 }
 
-export default Index
+export default Admin
